@@ -18,7 +18,6 @@ public class Stock {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long stock_id;
-
     private String stock_name;
     private Long open_price;
     private Long close_price;
