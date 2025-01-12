@@ -17,11 +17,11 @@ public class Holding {
     private Long holdingId;
 
     private String stock_name;
-    private String stock_id;
+    private Long stock_id;
     private Long quantity;
     private Long buy_price;
     private Long current_price;
-    private Double gainNloss;
+    private Long gain_loss;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false) // Foreign key column
