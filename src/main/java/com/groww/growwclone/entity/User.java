@@ -19,9 +19,6 @@ public class User {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long user_id;
 
-    private String firstName;
-    private String lastName;
-
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Holding> holdings = new ArrayList<>();
 }
