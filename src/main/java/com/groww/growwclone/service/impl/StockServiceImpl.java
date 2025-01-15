@@ -30,7 +30,6 @@ public class StockServiceImpl implements StockService {
         else
         {
             log.info("Stock is not Present");
-
             return null;
         }
     }
