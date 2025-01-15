@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 public class StockDTO {
-    private Long stock_id;
+    private Long stockId;
 }

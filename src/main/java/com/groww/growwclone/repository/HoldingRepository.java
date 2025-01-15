@@ -14,4 +14,6 @@ public interface HoldingRepository extends JpaRepository<Holding, Long> {
             @Param("userId") Long userId,
             @Param("stockId") Long stockId
     );
+
+    List<Holding> findByUser_UserId(Long userId);
 }

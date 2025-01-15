@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="users")
 @Data
 @Builder(toBuilder = true)
 @NoArgsConstructor
@@ -17,7 +18,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long user_id;
+    private Long userId;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Holding> holdings = new ArrayList<>();

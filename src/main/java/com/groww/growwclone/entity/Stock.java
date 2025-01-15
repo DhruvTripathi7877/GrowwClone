@@ -17,11 +17,11 @@ import lombok.NoArgsConstructor;
 public class Stock {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long stock_id;
-    private String stock_name;
-    private Long open_price;
-    private Long close_price;
-    private Long low_price;
-    private Long high_price;
-    private Long settlement_price;
+    private Long stockId;
+    private String stockName;
+    private Long openPrice;
+    private Long closePrice;
+    private Long lowPrice;
+    private Long highPrice;
+    private Long settlementPrice;
 }

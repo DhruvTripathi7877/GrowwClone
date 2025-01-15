@@ -138,3 +138,107 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a   
        add constraint FKqj6c499yadk3ka6gakt0t527s 
        foreign key (user_id) 
        references user [42001-232]
+2025-01-15 23:28:59.730449+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id bigint not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id bigint not null,
+        primary key (user_id)
+    ) [42001-232]
+2025-01-15 23:28:59.736315+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists holding \000a       add constraint FKqj6c499yadk3ka6gakt0t527s \000a       foreign key (user_id) \000a       references [*]user"; expected "identifier"; SQL statement:
+
+    alter table if exists holding 
+       add constraint FKqj6c499yadk3ka6gakt0t527s 
+       foreign key (user_id) 
+       references user [42001-232]
+2025-01-15 23:34:06.004215+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id bigint not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id bigint not null,
+        primary key (user_id)
+    ) [42001-232]
+2025-01-15 23:34:06.008079+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists holding \000a       add constraint FKqj6c499yadk3ka6gakt0t527s \000a       foreign key (user_id) \000a       references [*]user"; expected "identifier"; SQL statement:
+
+    alter table if exists holding 
+       add constraint FKqj6c499yadk3ka6gakt0t527s 
+       foreign key (user_id) 
+       references user [42001-232]
+2025-01-15 23:36:58.197044+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id bigint not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id bigint not null,
+        primary key (user_id)
+    ) [42001-232]
+2025-01-15 23:36:58.200695+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists holding \000a       add constraint FKqj6c499yadk3ka6gakt0t527s \000a       foreign key (user_id) \000a       references [*]user"; expected "identifier"; SQL statement:
+
+    alter table if exists holding 
+       add constraint FKqj6c499yadk3ka6gakt0t527s 
+       foreign key (user_id) 
+       references user [42001-232]
+2025-01-15 23:37:55.820827+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id bigint not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id bigint not null,
+        primary key (user_id)
+    ) [42001-232]
+2025-01-15 23:37:55.824991+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists holding \000a       add constraint FKqj6c499yadk3ka6gakt0t527s \000a       foreign key (user_id) \000a       references [*]user"; expected "identifier"; SQL statement:
+
+    alter table if exists holding 
+       add constraint FKqj6c499yadk3ka6gakt0t527s 
+       foreign key (user_id) 
+       references user [42001-232]
+2025-01-15 23:43:12.499693+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id bigint not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id bigint not null,
+        primary key (user_id)
+    ) [42001-232]
+2025-01-15 23:43:12.503299+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists holding \000a       add constraint FKqj6c499yadk3ka6gakt0t527s \000a       foreign key (user_id) \000a       references [*]user"; expected "identifier"; SQL statement:
+
+    alter table if exists holding 
+       add constraint FKqj6c499yadk3ka6gakt0t527s 
+       foreign key (user_id) 
+       references user [42001-232]
+2025-01-15 23:44:28.296577+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id bigint not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id bigint not null,
+        primary key (user_id)
+    ) [42001-232]
+2025-01-15 23:44:28.300124+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists holding \000a       add constraint FKqj6c499yadk3ka6gakt0t527s \000a       foreign key (user_id) \000a       references [*]user"; expected "identifier"; SQL statement:
+
+    alter table if exists holding 
+       add constraint FKqj6c499yadk3ka6gakt0t527s 
+       foreign key (user_id) 
+       references user [42001-232]
+2025-01-15 23:44:37.126567+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.user_id from [*]user u1_0 where u1_0.user_id=?"; expected "identifier"; SQL statement:
+select u1_0.user_id from user u1_0 where u1_0.user_id=? [42001-232]
+2025-01-15 23:44:51.174292+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    create table [*]user (\000a        user_id bigint not null,\000a        primary key (user_id)\000a    )"; expected "identifier"; SQL statement:
+
+    create table user (
+        user_id bigint not null,
+        primary key (user_id)
+    ) [42001-232]
+2025-01-15 23:44:51.178067+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a    alter table if exists holding \000a       add constraint FKqj6c499yadk3ka6gakt0t527s \000a       foreign key (user_id) \000a       references [*]user"; expected "identifier"; SQL statement:
+
+    alter table if exists holding 
+       add constraint FKqj6c499yadk3ka6gakt0t527s 
+       foreign key (user_id) 
+       references user [42001-232]
+2025-01-15 23:45:05.288947+05:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.user_id from [*]user u1_0 where u1_0.user_id=?"; expected "identifier"; SQL statement:
+select u1_0.user_id from user u1_0 where u1_0.user_id=? [42001-232]

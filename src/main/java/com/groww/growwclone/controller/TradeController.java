@@ -17,7 +17,7 @@ import static java.rmi.server.LogStream.log;
 public class TradeController {
     private final TradeService tradeService;
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value="/",consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> trade( @RequestBody TradeDTO trade_dto)
     {
         tradeService.executeTrade(trade_dto);

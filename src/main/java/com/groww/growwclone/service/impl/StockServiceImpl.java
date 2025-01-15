@@ -18,7 +18,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public Stock findStock(StockDTO stock_dto) {
-        Long stock_id=stock_dto.getStock_id();
+        Long stock_id=stock_dto.getStockId();
         Optional<Stock> stock = stockRepository.findById(stock_id);
 
         if(stock.isPresent())

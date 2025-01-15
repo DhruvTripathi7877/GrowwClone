@@ -6,11 +6,11 @@ import lombok.Data;
 @Data
 public class TradeDTO {
     @NotNull(message="User Id should not be Not Null")
-    private Long user_id;
+    private Long userId;
 
     private TradeType trade_type;
     private Long quantity;
-    private Long stock_id;
+    private Long stockId;
 
     public enum TradeType{
         BUY,

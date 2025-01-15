@@ -16,14 +16,14 @@ public class Holding {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long holdingId;
 
-    private String stock_name;
-    private Long stock_id;
+    private String stockName;
+    private Long stockId;
     private Long quantity;
-    private Long buy_price;
-    private Long current_price;
-    private Long gain_loss;
+    private Long buyPrice;
+    private Long currentPrice;
+    private Long gainLoss;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false) // Foreign key column
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 }

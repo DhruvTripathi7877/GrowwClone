@@ -30,12 +30,12 @@ public class CsvParser {
                 Long settlementPrice = Long.parseLong(record.get("SETTLEMENT_PRICE"));
 
                 Stock stock = Stock.builder()
-                        .stock_name(stockName)
-                        .open_price(openPrice)
-                        .close_price(closePrice)
-                        .low_price(lowPrice)
-                        .high_price(highPrice)
-                        .settlement_price(settlementPrice)
+                        .stockName(stockName)
+                        .openPrice(openPrice)
+                        .closePrice(closePrice)
+                        .lowPrice(lowPrice)
+                        .highPrice(highPrice)
+                        .settlementPrice(settlementPrice)
                         .build();
                 stocks.add(stock);
             }

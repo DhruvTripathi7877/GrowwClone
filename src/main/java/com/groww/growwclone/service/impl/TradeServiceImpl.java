@@ -35,7 +35,7 @@ public class TradeServiceImpl implements TradeService {
     public void executeTrade(TradeDTO trade_dto)
     {
         try {
-            Long stock_id = trade_dto.getStock_id();
+            Long stock_id = trade_dto.getStockId();
             Optional<Stock> stock = stockRepository.findById(stock_id);
 
             if (trade_dto.getQuantity() <= 0) {
@@ -46,7 +46,7 @@ public class TradeServiceImpl implements TradeService {
             if (stock.isPresent()) {
                 Stock stockEntity = stock.get();
 
-                Long user_id = trade_dto.getUser_id();
+                Long user_id = trade_dto.getUserId();
                 Optional<User> user = userRepository.findById(user_id);
 
                 User userEntity;
@@ -55,7 +55,7 @@ public class TradeServiceImpl implements TradeService {
                     userEntity = user.get();
                 } else {
                     userEntity = new User();
-                    userEntity.setUser_id(user_id);
+                    userEntity.setUserId(user_id);
                     userRepository.save(userEntity);
                     log.info("New User Created with ID: {}", user_id);
                 }
@@ -84,29 +84,29 @@ public class TradeServiceImpl implements TradeService {
 
     private void buyStock(Stock stockEntity,TradeDTO trade_dto,User userEntity)
     {
-        Long userId=userEntity.getUser_id();
-        Long stockId=stockEntity.getStock_id();
-        Long gain_loss = stockEntity.getClose_price() - stockEntity.getOpen_price();
+        Long userId=userEntity.getUserId();
+        Long stockId=stockEntity.getStockId();
+        Long gain_loss = stockEntity.getClosePrice() - stockEntity.getOpenPrice();
 
         Holding holding = Holding.builder()
-                .stock_name(stockEntity.getStock_name())
-                .stock_id(stockEntity.getStock_id())
+                .stockName(stockEntity.getStockName())
+                .stockId(stockEntity.getStockId())
                 .quantity(trade_dto.getQuantity())
-                .buy_price(stockEntity.getOpen_price())
-                .current_price(stockEntity.getClose_price())
-                .gain_loss(gain_loss)
+                .buyPrice(stockEntity.getOpenPrice())
+                .currentPrice(stockEntity.getClosePrice())
+                .gainLoss(gain_loss)
                 .user(userEntity)
                 .build();
 
         holdingRepository.save(holding);
-        log.info("Holding Save for Stock: {}", stockEntity.getStock_name());
+        log.info("Holding Save for Stock: {}", stockEntity.getStockName());
 
         Long quantity = trade_dto.getQuantity();
         TradeHistory tradeHistory = TradeHistory.builder()
                 .userId(userId)
                 .stockId(stockId)
                 .quantity(quantity)
-                .sellPrice(stockEntity.getClose_price())
+                .sellPrice(stockEntity.getClosePrice())
                 .sellTimestamp(LocalDateTime.now())
                 .build();
 
@@ -114,8 +114,8 @@ public class TradeServiceImpl implements TradeService {
     }
 
     private void sellStock(User user,Stock stock,TradeDTO tradeDTO) throws IllegalAccessException {
-        Long userId=user.getUser_id();
-        Long stockId=stock.getStock_id();
+        Long userId=user.getUserId();
+        Long stockId=stock.getStockId();
         Long remainingQuantity=tradeDTO.getQuantity();
 
         List<Holding> holdings = holdingRepository.findAllHoldingsForStock(userId, stockId);
@@ -157,7 +157,7 @@ public class TradeServiceImpl implements TradeService {
                 .userId(userId)
                 .stockId(stockId)
                 .quantity(remainingQuantity)
-                .sellPrice(stock.getClose_price())
+                .sellPrice(stock.getClosePrice())
                 .sellTimestamp(LocalDateTime.now())
                 .build();
 

@@ -4,7 +4,7 @@ import com.groww.growwclone.entity.Stock;
 import com.groww.growwclone.repository.StockRepository;
 import com.groww.growwclone.service.UpdateService;
 import com.opencsv.CSVReader;
-import com.opencsv.exceptions.CsvValidationException; // Import the exception
+import com.opencsv.exceptions.CsvValidationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -26,14 +26,12 @@ public class UpdateServiceImpl implements UpdateService {
         try (CSVReader csvReader = new CSVReader(new InputStreamReader(file.getInputStream()))) {
             String[] nextLine;
 
-            // Skip the header row
             csvReader.readNext();
 
             while ((nextLine = csvReader.readNext()) != null) {
-                // Check if the row has enough columns
                 if (nextLine.length < 7) {
                     log.warn("Skipping invalid row with insufficient columns: {}", Arrays.toString(nextLine));
-                    continue; // Skip this row if it doesn't have the expected number of columns
+                    continue;
                 }
 
                 try {
@@ -52,12 +50,12 @@ public class UpdateServiceImpl implements UpdateService {
 
                     // Build and save the Stock entity
                     Stock stock = Stock.builder()
-                            .stock_name(security)
-                            .open_price(openPrice)
-                            .high_price(highPrice)
-                            .low_price(lowPrice)
-                            .close_price(closePrice)
-                            .settlement_price(closePrice)
+                            .stockName(security)
+                            .openPrice(openPrice)
+                            .highPrice(highPrice)
+                            .lowPrice(lowPrice)
+                            .closePrice(closePrice)
+                            .settlementPrice(closePrice)
                             .build();
 
                     stockRepository.save(stock);
@@ -72,26 +70,15 @@ public class UpdateServiceImpl implements UpdateService {
         }
     }
 
-    /**
-     * Cleans and parses CSV values to ensure valid numeric parsing.
-     * @param value The value to be cleaned and parsed.
-     * @return The cleaned double value as string.
-     */
     private String parseCsvValue(String value) {
-        // Clean up any commas or extra spaces in the string.
         return value.trim().replaceAll(",", "");
     }
 
-    /**
-     * Scales a double value to a long by multiplying it by 100 (or another factor as needed).
-     * @param value The double value to scale.
-     * @return The scaled long value.
-     */
     private long scaleToLong(String value) {
         try {
             return Math.round(Double.parseDouble(value) * 100);
         } catch (NumberFormatException e) {
-            return 0L;  // Default value in case of a parse error
+            return 0L;
         }
     }
 }
