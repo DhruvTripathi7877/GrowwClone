@@ -32,13 +32,13 @@ public class TradeServiceImpl implements TradeService {
 
     @Override
     @Transactional
-    public void executeTrade(TradeDTO trade_dto)
+    public void executeTrade(TradeDTO tradeDTO)
     {
         try {
-            Long stock_id = trade_dto.getStockId();
-            Optional<Stock> stock = stockRepository.findById(stock_id);
+            Long stockId = tradeDTO.getStockId();
+            Optional<Stock> stock = stockRepository.findById(stockId);
 
-            if (trade_dto.getQuantity() <= 0) {
+            if (tradeDTO.getQuantity() <= 0) {
                 log.info("Quantity must be greater than 0");
                 throw new Exception("Quantity must be greater than 0");
             }
@@ -46,8 +46,8 @@ public class TradeServiceImpl implements TradeService {
             if (stock.isPresent()) {
                 Stock stockEntity = stock.get();
 
-                Long user_id = trade_dto.getUserId();
-                Optional<User> user = userRepository.findById(user_id);
+                Long userId = tradeDTO.getUserId();
+                Optional<User> user = userRepository.findById(userId);
 
                 User userEntity;
 
@@ -55,18 +55,18 @@ public class TradeServiceImpl implements TradeService {
                     userEntity = user.get();
                 } else {
                     userEntity = new User();
-                    userEntity.setUserId(user_id);
+//                    userEntity.setUserId(userId);
                     userRepository.save(userEntity);
-                    log.info("New User Created with ID: {}", user_id);
+                    log.info("New User Created with ID: {}", userId);
                 }
 
 
-                if (trade_dto.getTrade_type() == TradeDTO.TradeType.BUY) {
-                    buyStock(stockEntity,trade_dto,userEntity);
+                if (tradeDTO.getTrade_type() == TradeDTO.TradeType.BUY) {
+                    buyStock(stockEntity,tradeDTO,userEntity);
                 }
-                else if(trade_dto.getTrade_type()== TradeDTO.TradeType.SELL)
+                else if(tradeDTO.getTrade_type()== TradeDTO.TradeType.SELL)
                 {
-
+                    sellStock(userEntity,stockEntity,tradeDTO);
                 }
                 else
                 {
@@ -82,7 +82,7 @@ public class TradeServiceImpl implements TradeService {
         }
     }
 
-    private void buyStock(Stock stockEntity,TradeDTO trade_dto,User userEntity)
+    private void buyStock(Stock stockEntity,TradeDTO tradeDTO,User userEntity)
     {
         Long userId=userEntity.getUserId();
         Long stockId=stockEntity.getStockId();
@@ -91,7 +91,7 @@ public class TradeServiceImpl implements TradeService {
         Holding holding = Holding.builder()
                 .stockName(stockEntity.getStockName())
                 .stockId(stockEntity.getStockId())
-                .quantity(trade_dto.getQuantity())
+                .quantity(tradeDTO.getQuantity())
                 .buyPrice(stockEntity.getOpenPrice())
                 .currentPrice(stockEntity.getClosePrice())
                 .gainLoss(gain_loss)
@@ -101,7 +101,7 @@ public class TradeServiceImpl implements TradeService {
         holdingRepository.save(holding);
         log.info("Holding Save for Stock: {}", stockEntity.getStockName());
 
-        Long quantity = trade_dto.getQuantity();
+        Long quantity = tradeDTO.getQuantity();
         TradeHistory tradeHistory = TradeHistory.builder()
                 .userId(userId)
                 .stockId(stockId)

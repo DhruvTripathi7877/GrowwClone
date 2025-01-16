@@ -242,3 +242,12 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "\000a   
 2025-01-15 23:45:05.288947+05:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "select u1_0.user_id from [*]user u1_0 where u1_0.user_id=?"; expected "identifier"; SQL statement:
 select u1_0.user_id from user u1_0 where u1_0.user_id=? [42001-232]
+2025-01-16 23:12:38.136912+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM [*]User"; expected "identifier"; SQL statement:
+SELECT * FROM User [42001-232]
+2025-01-16 23:12:51.906712+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "HOLDINGS" not found; SQL statement:
+SELECT * FROM Holdings [42102-232]
+2025-01-16 23:13:36.621621+05:30 jdbc[8]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TRADEHISTORY" not found; SQL statement:
+SELECT * FROM TradeHistory [42102-232]

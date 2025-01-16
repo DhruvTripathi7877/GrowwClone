@@ -17,11 +17,12 @@ import static java.rmi.server.LogStream.log;
 public class TradeController {
     private final TradeService tradeService;
 
-    @PostMapping(value="/",consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> trade( @RequestBody TradeDTO trade_dto)
     {
+        log.info("Trade is getting started");
         tradeService.executeTrade(trade_dto);
-        log.info("Trade is getting executed");
+        log.info("Trade finished");
 
         return ResponseEntity.ok("Trade executed successfully");
     }
